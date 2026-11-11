@@ -38,17 +38,20 @@ Settings > Personal > Appearance and accessibility > Breeze Dark
 
 Under the Theming section in the admin settings you can add your own custom styling to the theme. Only standard CSS can be used. This custom styling will be applied whenever the theme is enabled and only affects the Breeze Dark theme.
     ]]></description>
-    <version>33.0.0</version>
-    <licence>agpl</licence>
+    <version>35.0.0</version>
+    <licence>AGPL-3.0-or-later</licence>
     <author mail="mw@mwalbeck.org" homepage="https://github.com/mwalbeck/nextcloud-breeze-dark">Magnus Walbeck</author>
+    <author>André Théo LAURET</author>
     <namespace>BreezeDark</namespace>
     <category>customization</category>
-    <website>https://github.com/mwalbeck/nextcloud-breeze-dark</website>
-    <bugs>https://github.com/mwalbeck/nextcloud-breeze-dark/issues</bugs>
-    <screenshot>https://raw.githubusercontent.com/mwalbeck/nextcloud-breeze-dark/master/screenshot.png</screenshot>
+    <website>https://github.com/eldertek/nextcloud-breeze-dark</website>
+    <bugs>https://github.com/eldertek/nextcloud-breeze-dark/issues</bugs>
+    <donation>https://patreon.com/eldertek</donation>
+    <donation>https://github.com/sponsors/eldertek</donation>
+    <screenshot>https://raw.githubusercontent.com/eldertek/nextcloud-breeze-dark/master/screenshot.png</screenshot>
     <dependencies>
-        <php min-version="8.2"/>
-        <nextcloud min-version="32" max-version="34"/>
+        <php min-version="8.2" max-version="8.5"/>
+        <nextcloud min-version="28" max-version="35"/>
     </dependencies>
     <repair-steps>
 		<post-migration>

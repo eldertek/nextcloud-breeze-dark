@@ -43,7 +43,10 @@ class SettingsController extends Controller
     /** @var IConfig */
     private $config;
 
-    /** @var string */
+    /** @var IUserSession */
+    private $userSession;
+
+    /** @var ?string */
     private $userId;
 
     /**
@@ -60,7 +63,9 @@ class SettingsController extends Controller
     ) {
         parent::__construct($appName, $request);
         $this->config = $config;
-        $this->userId = $userSession->getUser()->getUID();
+        $this->userSession = $userSession;
+        $user = $userSession->getUser();
+        $this->userId = $user !== null ? $user->getUID() : null;
     }
 
     /**
@@ -69,6 +74,16 @@ class SettingsController extends Controller
     #[NoAdminRequired]
     public function personal(): void
     {
+        if ($this->userId === null) {
+            $user = $this->userSession->getUser();
+            if ($user !== null) {
+                $this->userId = $user->getUID();
+            }
+        }
+        if ($this->userId === null) {
+            return;
+        }
+
         $themeEnforced = $this->config->getAppValue($this->appName, 'theme_enforced', "0");
 
         if (!$themeEnforced) {

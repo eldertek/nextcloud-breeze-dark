@@ -19,6 +19,33 @@
     background-color: unset !important;
 }
 
+#body-public #header {
+    background-color: var(--color-main-background-blur) !important;
+    color: var(--color-main-text) !important;
+
+    .header-title,
+    .header-shared-by,
+    .header-appname,
+    .header-info,
+    .header-info * {
+        color: var(--color-main-text) !important;
+    }
+
+    a,
+    button,
+    .button {
+        color: var(--color-main-text) !important;
+    }
+
+    svg,
+    .icon,
+    [class^="icon-"],
+    [class*=" icon-"] {
+        fill: var(--color-main-text) !important;
+        filter: none !important;
+    }
+}
+
 /* Menues -------------------------------------------------------------------- */
 
 .menu,

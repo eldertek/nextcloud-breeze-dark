@@ -84,7 +84,7 @@
             });
     }
 
-    window.addEventListener("DOMContentLoaded", function () {
+    function init() {
         const themeEnabled = document.getElementById("breezedark-enabled");
         const automaticActivation = document.getElementById(
             "breezedark-automatic-activation-enabled"
@@ -117,5 +117,11 @@
                 );
             });
         }
-    });
+    }
+
+    if (document.readyState === "loading") {
+        window.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
+    }
 })();

@@ -330,6 +330,29 @@
   #body-login #header {
     background-color: unset !important;
   }
+  #body-public #header {
+    background-color: var(--color-main-background-blur) !important;
+    color: var(--color-main-text) !important;
+  }
+  #body-public #header .header-title,
+  #body-public #header .header-shared-by,
+  #body-public #header .header-appname,
+  #body-public #header .header-info,
+  #body-public #header .header-info * {
+    color: var(--color-main-text) !important;
+  }
+  #body-public #header a,
+  #body-public #header button,
+  #body-public #header .button {
+    color: var(--color-main-text) !important;
+  }
+  #body-public #header svg,
+  #body-public #header .icon,
+  #body-public #header [class^=icon-],
+  #body-public #header [class*=" icon-"] {
+    fill: var(--color-main-text) !important;
+    filter: none !important;
+  }
   /* Menues -------------------------------------------------------------------- */
   .menu,
   .popovermenu,
@@ -2054,6 +2077,82 @@
   .hljs-strong {
     font-weight: bold !important;
   }
+  /***
+   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Music -------------------------------------------------------------------- */
+  /* Icons -------------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Passman ------------------------------------------------------------------ */
+  /* Icons -------------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Passwords ---------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Phone Sync --------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2021, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Phonetrack --------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Polls -------------------------------------------------------------------- */
+  /* Datepicker */
+  /***
+   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Quick Notes -------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2023, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Radio -------------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2020, Magnus Walbeck (mw@mwalbeck.org)
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Terms of service --------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2021, Magnus Walbeck (mw@mwalbeck.org)
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* TimeManager -------------------------------------------------------------- */
+  /* Icons -------------------------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* User account deletion ---------------------------------------------------- */
+  /***
+   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
+   *
+   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+   */
+  /* Weather ------------------------------------------------------------------ */
 }
 @media screen and (prefers-color-scheme: dark) and (-ms-high-contrast: active) {
   .hljs-addition,
@@ -2079,18 +2178,14 @@
   }
 }
 @media (prefers-color-scheme: dark) {
-  /***
-   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Music -------------------------------------------------------------------- */
   .app-music #app-navigation .app-navigation-separator {
     border-bottom-color: var(--color-border);
   }
   .app-music #app-navigation li.drag-hover {
     background-color: var(--color-background-hover);
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-music #app-content #emptycontent,
   .app-music #app-content .emptycontent {
     background-color: var(--color-main-background);
@@ -2129,6 +2224,8 @@
   .app-music #app-content #music-user .warning a {
     color: var(--color-text-link) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   #music-controls {
     background-color: var(--color-main-background) !important;
     border-top: 1px solid var(--color-border);
@@ -2146,7 +2243,8 @@
   #music-controls .play-bar {
     background-color: var(--color-primary-element) !important;
   }
-  /* Icons -------------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-music #app-sidebar #follow-playback {
     filter: invert(95%);
   }
@@ -2172,25 +2270,27 @@
   .app-music .icon-pause-big {
     filter: invert(95%);
   }
+}
+@media (prefers-color-scheme: dark) {
   #music-controls img.control,
   .app-music img.control {
     filter: invert(95%);
   }
+}
+@media (prefers-color-scheme: dark) {
   .current.playing .play-pause,
   .current:not(.playing) .play-pause,
   #app-view :hover > .play-pause,
   #app-view .current.playing div:hover .play-pause {
     filter: invert(95%);
   }
+}
+@media (prefers-color-scheme: dark) {
   .fileActionsMenu .action-music-play img.icon {
     filter: invert(95%);
   }
-  /***
-   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Passman ------------------------------------------------------------------ */
+}
+@media (prefers-color-scheme: dark) {
   .app-passman .vault_wrapper {
     background: var(--color-background-darker);
     border: 1px solid var(--color-border);
@@ -2228,6 +2328,8 @@
     background-color: var(--color-warning) !important;
     border-color: var(--color-warning) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-passman #app-navigation li .bullet-color-red {
     background-color: var(--color-error);
   }
@@ -2246,6 +2348,8 @@
   .app-passman #app-navigation .nav-trashbin a.active {
     background-color: var(--color-primary-element) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-passman #app-content #app-content-wrapper .credential-table tr:hover {
     background-color: var(--color-background-hover);
   }
@@ -2359,6 +2463,8 @@
     background-color: var(--color-warning) !important;
     border-color: var(--color-warning) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   tags-input .tags {
     background-color: var(--color-main-background) !important;
     border: 1px solid var(--color-border) !important;
@@ -2385,6 +2491,8 @@
     background-color: var(--color-background-hover) !important;
     color: var(--color-main-text) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .angularjs-datetime-picker {
     background: var(--color-main-background) !important;
     border-color: var(--color-border) !important;
@@ -2411,9 +2519,13 @@
   .angularjs-datetime-picker .adp-days > .adp-day.selectable:hover {
     background: var(--color-background-hover) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .sequence code {
     border: unset !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .iconpicker-dialog,
   .iconpicker-dialog .ui-dialog,
   .shareincoming-dialog,
@@ -2422,25 +2534,26 @@
   .custom-search-dialog .ui-dialog {
     box-shadow: none !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .iconpicker-dialog .ui-button.ui-button-icon-only {
     background-color: var(--color-main-background) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   #passman-settings #mover table tr:hover {
     background-color: unset;
   }
-  /* Icons -------------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-passman .icon-expired {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0Jz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PHBhdGggZD0nTTEzIDNjLTQuOTcgMC05IDQuMDMtOSA5SDFsMy44OSAzLjg5LjA3LjE0TDkgMTJINmMwLTMuODcgMy4xMy03IDctN3M3IDMuMTMgNyA3LTMuMTMgNy03IDdjLTEuOTMgMC0zLjY4LS43OS00Ljk0LTIuMDZsLTEuNDIgMS40MkM4LjI3IDE5Ljk5IDEwLjUxIDIxIDEzIDIxYzQuOTcgMCA5LTQuMDMgOS05cy00LjAzLTktOS05em0tMSA1djVsNC4yOCAyLjU0LjcyLTEuMjEtMy41LTIuMDhWOEgxMnonIGZpbGw9JyNmMmYyZjInLz48L3N2Zz4=") !important;
   }
   .app-passman .icon-label .icon-image {
     background-image: unset !important;
   }
-  /***
-   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Passwords ---------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-passwords #app-navigation .nav-icon-recent,
   .app-passwords #app-navigation .nav-icon-favorites {
     background-image: none;
@@ -2451,6 +2564,8 @@
   .app-passwords #app-navigation ul li:hover {
     background-color: var(--color-background-hover);
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-passwords #app-content #controls .passwords-more-menu .menu {
     transition: border 0.25s ease-in-out, max-height 0.25s ease-in-out;
   }
@@ -2497,6 +2612,8 @@
   .app-passwords #app-content .app-content-left.settings section.danger input[type=button]:hover {
     border-color: var(--color-error);
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-passwords #app-popup #passwords-create-new .window form.content .section-title,
   .app-passwords #app-popup #passwords-create-new .window form.content .open .foldout-title {
     border-color: var(--color-border);
@@ -2519,22 +2636,22 @@
     background-color: var(--color-primary-element);
     padding: 1.225px 0;
   }
+}
+@media (prefers-color-scheme: dark) {
   .oc-dialog #pw-field-color {
     background-color: var(--color-main-background);
     border: unset;
   }
+}
+@media (prefers-color-scheme: dark) {
   .oc-dialog-buttonrow.twobuttons button.primary {
     border-color: var(--color-border);
   }
   .oc-dialog-buttonrow.twobuttons button.primary:hover, .oc-dialog-buttonrow.twobuttons button.primary:active, .oc-dialog-buttonrow.twobuttons button.primary:focus {
     border-color: var(--color-primary-element);
   }
-  /***
-   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Phone Sync --------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-ocsms #app-navigation {
     border-left: unset;
   }
@@ -2550,6 +2667,8 @@
   .app-ocsms #app-navigation #app-mailbox-peers li:hover a {
     background: unset;
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-ocsms #app-content #app-content-header {
     box-shadow: unset;
   }
@@ -2567,12 +2686,8 @@
     color: var(--color-text-maxcontrast);
     opacity: 1;
   }
-  /***
-   * @copyright Copyright (c) 2021, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Phonetrack --------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-phonetrack hr {
     background-color: var(--color-border);
   }
@@ -2595,12 +2710,8 @@
   .app-phonetrack .toplink:visited {
     color: var(--color-text-link);
   }
-  /***
-   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Polls -------------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-polls #app-content .table-row.table-header {
     opacity: 1;
   }
@@ -2634,6 +2745,8 @@
   .app-polls #app-content .vote-row .counter .no {
     background-color: var(--color-error);
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-polls #app-sidebar.detailsView .pollInformation .cloud .open {
     background-color: var(--color-success);
   }
@@ -2646,34 +2759,39 @@
   .app-polls #app-sidebar .pollActions li a:hover {
     opacity: 1;
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-polls .tabHeaders .tabHeader.selected, .app-polls .tabHeaders .tabHeader:hover, .app-polls .tabHeaders .tabHeader:focus {
     border-bottom-color: var(--color-border);
   }
-  /* Datepicker */
+}
+@media (prefers-color-scheme: dark) {
   .app-polls .mx-datepicker .mx-datepicker-popup {
     background-color: var(--color-main-background) !important;
     border-color: var(--color-border) !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-polls .modal-dialog {
     border: 1px solid var(--color-border) !important;
     box-shadow: none !important;
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-settings .app-settings__content .checkbox-radio-switch:not(.checkbox-radio-switch--disabled) .checkbox-radio-switch__input:hover + .checkbox-radio-switch__label,
   .app-settings .app-settings__content .checkbox-radio-switch:not(.checkbox-radio-switch--disabled) .checkbox-radio-switch__input:focus + .checkbox-radio-switch__label {
     background-color: var(--color-background-hover);
   }
-  /***
-   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Quick Notes -------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-quicknotes #app-navigation #new-note-fixed {
     background-color: var(--color-main-background);
   }
   .app-quicknotes #app-navigation #colors-folder .circle-toolbar.any-color {
     background-color: var(--color-background-alternate);
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-quicknotes .quicknote {
     box-shadow: none;
     color: #000;
@@ -2681,22 +2799,14 @@
   .app-quicknotes .quicknote:hover {
     box-shadow: none;
   }
-  /***
-   * @copyright Copyright (c) 2023, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Radio -------------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   #rl-app input {
     background-color: var(--input-bg-clr, #fff);
     color: var(--input-clr, #555);
   }
-  /***
-   * @copyright Copyright (c) 2020, Magnus Walbeck (mw@mwalbeck.org)
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Terms of service --------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   #terms_of_service_confirm .v--modal-overlay .v--modal-background-click {
     background-color: rgba(0, 0, 0, 0.5);
   }
@@ -2709,12 +2819,8 @@
   #terms_of_service_confirm .v--modal-overlay .v--modal-background-click .v--modal.v--modal-box #tos-overlay button.primary {
     margin: 1em auto;
   }
-  /***
-   * @copyright Copyright (c) 2021, Magnus Walbeck (mw@mwalbeck.org)
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* TimeManager -------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-timemanager {
     --border: 1px solid var(--color-border);
     --borderHoverColor: var(--color-primary-element);
@@ -2749,19 +2855,18 @@
   .app-timemanager .tm_item-row a:focus {
     background-color: var(--color-primary);
   }
-  /* Icons -------------------------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   .app-timemanager #app-navigation ul li img {
     filter: invert(95%);
   }
-  /***
-   * @copyright Copyright (c) 2017, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* User account deletion ---------------------------------------------------- */
+}
+@media (prefers-color-scheme: dark) {
   #delete-account-settings .warnings {
     color: var(--color-error);
   }
+}
+@media (prefers-color-scheme: dark) {
   button#deleteaccount {
     border-color: var(--color-error);
   }
@@ -2773,12 +2878,8 @@
     background-color: var(--color-background-alternate);
     border-color: var(--color-border);
   }
-  /***
-   * @copyright Copyright (c) 2018, Magnus Walbeck <mw@mwalbeck.org>
-   *
-   * @license GNU AGPL version 3 or any later version, see COPYING file for more.
-   */
-  /* Weather ------------------------------------------------------------------ */
+}
+@media (prefers-color-scheme: dark) {
   .app-weather #city-list-left {
     background-color: var(--color-main-background);
     border-left: unset;
@@ -2810,6 +2911,8 @@
   .app-weather #city-list-left .city-list #create-city hr {
     background: var(--color-border);
   }
+}
+@media (prefers-color-scheme: dark) {
   .app-weather #city-right table tr {
     background-color: unset;
   }

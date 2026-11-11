@@ -43,6 +43,9 @@ class Personal implements ISettings
     /** @var IConfig */
     private $config;
 
+    /** @var IUserSession */
+    private $userSession;
+
     /** @var string */
     private $userId;
 
@@ -63,7 +66,9 @@ class Personal implements ISettings
     ) {
         $this->appName = $appName;
         $this->config = $config;
-        $this->userId = $userSession->getUser()->getUID();
+        $this->userSession = $userSession;
+        $user = $userSession->getUser();
+        $this->userId = $user !== null ? $user->getUID() : '';
         $this->appWebPath = $appManager->getAppWebPath($appName);
     }
 
@@ -72,6 +77,14 @@ class Personal implements ISettings
      */
     public function getForm(): TemplateResponse
     {
+        if ($this->userId === '') {
+            $user = $this->userSession->getUser();
+            $this->userId = $user !== null ? $user->getUID() : '';
+        }
+        if ($this->userId === '') {
+            return new TemplateResponse('breezedark', 'personal', []);
+        }
+
         $themeEnforced = $this->config->getAppValue($this->appName, 'theme_enforced', "0");
         $defaultAutomaticActivation = $this->config->getAppValue($this->appName, 'theme_automatic_activation_enabled', "0");
         $themeEnabled = $this->config->getUserValue($this->userId, $this->appName, 'theme_enabled', "0");

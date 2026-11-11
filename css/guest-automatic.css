@@ -275,4 +275,32 @@
     #saml-select-user-back-end .login-option a:hover {
         text-decoration: none;
     }
+
+    /* Public Share Header Contrast Fix (#349) */
+    #body-public #header {
+        background-color: var(--color-main-background-blur) !important;
+        color: var(--color-main-text) !important;
+    }
+
+    #body-public #header .header-title,
+    #body-public #header .header-shared-by,
+    #body-public #header .header-appname,
+    #body-public #header .header-info,
+    #body-public #header .header-info * {
+        color: var(--color-main-text) !important;
+    }
+
+    #body-public #header a,
+    #body-public #header button,
+    #body-public #header .button {
+        color: var(--color-main-text) !important;
+    }
+
+    #body-public #header svg,
+    #body-public #header .icon,
+    #body-public #header [class^="icon-"],
+    #body-public #header [class*=" icon-"] {
+        fill: var(--color-main-text) !important;
+        filter: none !important;
+    }
 }
