@@ -29,6 +29,7 @@ declare(strict_types=1);
 namespace OCA\BreezeDark\Controller;
 
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\IConfig;
 use OCP\IRequest;
 use OCP\IUserSession;
@@ -63,10 +64,9 @@ class SettingsController extends Controller
     }
 
     /**
-     * @NoAdminRequired
-     *
      * Set user theme option
      */
+    #[NoAdminRequired]
     public function personal(): void
     {
         $themeEnforced = $this->config->getAppValue($this->appName, 'theme_enforced', "0");

@@ -38,7 +38,7 @@ Settings > Personal > Appearance and accessibility > Breeze Dark
 
 Under the Theming section in the admin settings you can add your own custom styling to the theme. Only standard CSS can be used. This custom styling will be applied whenever the theme is enabled and only affects the Breeze Dark theme.
     ]]></description>
-    <version>29.0.0</version>
+    <version>33.0.0</version>
     <licence>agpl</licence>
     <author mail="mw@mwalbeck.org" homepage="https://github.com/mwalbeck/nextcloud-breeze-dark">Magnus Walbeck</author>
     <namespace>BreezeDark</namespace>
@@ -47,7 +47,8 @@ Under the Theming section in the admin settings you can add your own custom styl
     <bugs>https://github.com/mwalbeck/nextcloud-breeze-dark/issues</bugs>
     <screenshot>https://raw.githubusercontent.com/mwalbeck/nextcloud-breeze-dark/master/screenshot.png</screenshot>
     <dependencies>
-        <nextcloud min-version="29" max-version="29"/>
+        <php min-version="8.2"/>
+        <nextcloud min-version="32" max-version="34"/>
     </dependencies>
     <repair-steps>
 		<post-migration>
@@ -61,7 +62,7 @@ Under the Theming section in the admin settings you can add your own custom styl
         </uninstall>
 	</repair-steps>
     <settings>
-        <personal>OCA\BreezeDark\Settings\Personal</personal>
         <admin>OCA\BreezeDark\Settings\Admin</admin>
+        <personal>OCA\BreezeDark\Settings\Personal</personal>
     </settings>
 </info>

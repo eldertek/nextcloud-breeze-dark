@@ -1,13 +1,12 @@
 {
     "autoload-dev": {
         "psr-4": {
-            "OCP\\": "vendor/christophwurst/nextcloud/OCP",
             "OCA\\BreezeDark\\": "lib/"
         }
     },
     "require": {},
     "require-dev": {
-        "nextcloud/coding-standard": "^0.5.0",
-        "nextcloud/ocp": "^28"
+        "nextcloud/coding-standard": "^1.5",
+        "nextcloud/ocp": "^33.0"
     }
 }

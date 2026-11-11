@@ -54,10 +54,45 @@
     --color-primary-element: var(--color-primary) !important;
     --color-primary-element-light: var(--color-primary) !important;
 
-    --color-error: var(--color-icon-red) !important;
-    --color-warning: var(--color-beware-orange) !important;
+    // Status colours. Since Nextcloud 32 --color-<status> is the background of a
+    // status element (notecards, inline messages, …) while the accent colour
+    // moved to --color-element-<status>. --color-<status>-text is the text
+    // colour used on top of the status background.
+    --color-element-error: var(--color-icon-red) !important;
+    --color-element-warning: var(--color-beware-orange) !important;
+    --color-element-success: var(--color-noble-fir) !important;
+    --color-element-info: var(--color-icon-blue) !important;
+
+    --color-error: #482c31 !important;
+    --color-error-hover: #5a2f36 !important;
+    --color-error-text: #eeabb2 !important;
+    --color-error-rgb: 72, 44, 49 !important;
+
+    --color-warning: #4d3621 !important;
+    --color-warning-hover: #623d1d !important;
+    --color-warning-text: #fbc08c !important;
+    --color-warning-rgb: 77, 54, 33 !important;
+
+    --color-success: #244134 !important;
+    --color-success-hover: #244f3a !important;
+    --color-success-text: #9edbb7 !important;
+    --color-success-rgb: 36, 65, 52 !important;
+
+    --color-info: #28414f !important;
+    --color-info-hover: #2b4f63 !important;
+    --color-info-text: #a8dbf5 !important;
+    --color-info-rgb: 40, 65, 79 !important;
+
+    --color-text-error: #dc4f5d !important;
+    --color-text-success: #34b36a !important;
+
+    --color-border-error: var(--color-element-error) !important;
+    --color-border-success: var(--color-element-success) !important;
+
+    --color-favorite: var(--color-icon-yellow) !important;
+
+    // Only used internally by this theme, Nextcloud dropped it a while ago
     --color-neutral: var(--color-sunbeam-yellow) !important;
-    --color-success: var(--color-noble-fir) !important;
 
     --color-text-maxcontrast: var(--color-alternate-gray) !important;
     --color-text-light: var(--color-main-text) !important;
@@ -70,7 +105,7 @@
     --color-loading-dark: var(--color-coastal-fog) !important;
 
     --color-box-shadow: rgba(0, 0, 0, 0) !important;
-    --color-box-shadow-rgb: rgba(0, 0, 0, 0) !important;
+    --color-box-shadow-rgb: 0, 0, 0 !important;
 
     --color-border: var(--color-border-grey) !important;
     --color-border-dark: var(--color-border) !important;
@@ -86,31 +121,44 @@
     --table-color-background-hover: var(--color-background-hover) !important;
     --table-border-radius: var(--border-radius) !important;
 
-    // Variables from the official dark theme that needs to be set incase Nextcloud thinks the light theme is preferred.
-    // The variables should be adapted to better suit the Breeze Dark theme, but for the moment this will ensure a usable experience.
-    --color-main-background-rgb: rgb(23, 23, 23) !important;
-    --color-main-background-blur: rgba(23, 23, 23, 0.8) !important;
+    // Variables from the official dark theme that need to be set in case
+    // Nextcloud thinks the light theme is preferred. The values are adapted to
+    // the Breeze Dark palette where it makes a visible difference.
+    --color-main-background-rgb: 49, 54, 59 !important;
+    --color-main-background-blur: rgba(var(--color-main-background-rgb), 0.85) !important;
     --background-invert-if-dark: invert(100%) !important;
     --background-invert-if-bright: no !important;
-    --color-success-rgb: 70, 186, 97 !important;
-    --color-success-hover: #6ac780 !important;
-    --color-warning-rgb: 236, 167, 0 !important;
-    --color-warning-hover: #efb832 !important;
-    --color-error-rgb: 233, 50, 45 !important;
-    --color-error-hover: #ed5a56 !important;
-    --color-scrollbar: #3d3d3d !important;
-    --color-text-maxcontrast-background-blur: #919191 !important;
-    --color-text-maxcontrast-default: #8c8c8c !important;
-    --color-placeholder-light: #313131 !important;
-    --color-placeholder-dark: #4a4a4a !important;
-    --color-primary-default: #0082c9 !important;
-    --color-primary-hover: #04537f !important;
-    --color-primary-light-text: #99c0d6 !important;
-    --color-primary-light-hover: #1d272d !important;
-    --color-primary-element-default-hover: #046ca5 !important;
-    --color-primary-element-text: #fff !important;
-    --color-primary-element-hover: #04537f !important;
-    --color-primary-element-light-text: #99c0d6 !important;
-    --color-primary-element-light-hover: #1d272d !important;
-    --color-primary-element-text-dark: #ededed !important;
+    --background-image-invert-if-bright: no !important;
+    --primary-invert-if-bright: no !important;
+    --primary-invert-if-dark: invert(100%) !important;
+    --color-scrollbar: var(--color-border-grey) !important;
+    --color-text-maxcontrast-background-blur: var(--color-text-maxcontrast) !important;
+    --color-text-maxcontrast-default: var(--color-text-maxcontrast) !important;
+    --color-placeholder-light: rgba(61, 66, 71, 1) !important;
+    --color-placeholder-dark: rgba(77, 82, 87, 1) !important;
+    --color-background-plain-text: var(--color-paper-white) !important;
+    --color-primary-hover: rgba(56, 126, 163, 1) !important;
+    --color-primary-light-text: var(--color-primary-text) !important;
+    --color-primary-light-hover: rgba(57, 154, 204, 1) !important;
+    --color-primary-element-text: var(--color-primary-text) !important;
+    --color-primary-element-text-dark: var(--color-main-text) !important;
+    --color-primary-element-hover: rgba(84, 184, 236, 1) !important;
+    --color-primary-element-light-text: var(--color-primary-text) !important;
+    --color-primary-element-light-hover: rgba(57, 154, 204, 1) !important;
+
+    // Colours of the Nextcloud Assistant, introduced in Nextcloud 32
+    --color-background-assistant: rgba(54, 43, 65, 1) !important;
+    --color-border-assistant: linear-gradient(125deg, #0c3a65 50%, #6204a5 125%) !important;
+    --color-element-assistant: linear-gradient(
+        214deg,
+        #c8a3e8 12%,
+        #007cff 39%,
+        #c297dd 86%
+    ) !important;
+    --color-element-assistant-icon: linear-gradient(
+        214deg,
+        #cdace7 15.28%,
+        #008fdb 39.98%,
+        #a180e0 82.05%
+    ) !important;
 }

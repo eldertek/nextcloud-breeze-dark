@@ -10,14 +10,16 @@ If you have any questions, problems or anything else you're welcome to come hang
 
 The currently supported and maintained Nextcloud releases are:
 
--   Nextcloud 29
--   Nextcloud 28
+-   Nextcloud 34
+-   Nextcloud 33
+-   Nextcloud 32
 
-I try my best to maintain 2 Nextcloud releases at once, to allow for smoother transitions, but for various reason I might decide to drop support for older releases early.
+Nextcloud 32 is the oldest supported release, because the meaning of the status
+colour variables (`--color-error`, `--color-warning`, …) changed with it.
 
 Previous unmaintained releases:
 
--   Nextcloud 17-27 (App)
+-   Nextcloud 17-29 (App)
 -   Nextcloud 11-16 (Theme folder)
 
 ## Version numbering

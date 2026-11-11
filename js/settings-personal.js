@@ -22,62 +22,100 @@
  *
  */
 
-window.addEventListener("DOMContentLoaded", function () {
-    $("#breezedark-enabled").change(function () {
-        $.post(OC.generateUrl("apps/breezedark/settings"), {
-            theme_enabled: this.checked ? 1 : 0,
-            theme_automatic_activation_enabled: $("#breezedark-automatic-activation-enabled").prop(
-                "checked"
-            )
-                ? 1
-                : 0,
-        })
-            .done(function () {
-                $("label[for='breezedark-enabled']").append(
-                    " <span id='breezedark-enabled-msg' class='msg success'>" +
-                        t("breezedark", "Saved") +
-                        "</span>"
-                );
-                setTimeout(function () {
-                    $("#breezedark-enabled-msg").remove();
-                }, 3000);
-            })
-            .fail(function () {
-                $("label[for='breezedark-enabled']").append(
-                    " <span id='breezedark-enabled-msg' class='msg error'>" +
-                        t("breezedark", "Error") +
-                        "</span>"
-                );
-                setTimeout(function () {
-                    $("#breezedark-enabled-msg").remove();
-                }, 3000);
-            });
-    });
+(function () {
+    "use strict";
 
-    $("#breezedark-automatic-activation-enabled").change(function () {
-        $.post(OC.generateUrl("apps/breezedark/settings"), {
-            theme_enabled: $("#breezedark-enabled").prop("checked") ? 1 : 0,
-            theme_automatic_activation_enabled: this.checked ? 1 : 0,
-        })
-            .done(function () {
-                $("label[for='breezedark-automatic-activation-enabled']").append(
-                    " <span id='breezedark-automatic-activation-enabled-msg' class='msg success'>" +
-                        t("breezedark", "Saved") +
-                        "</span>"
-                );
-                setTimeout(function () {
-                    $("#breezedark-automatic-activation-enabled-msg").remove();
-                }, 3000);
+    function post(data) {
+        const body = new URLSearchParams();
+        Object.keys(data).forEach(function (key) {
+            body.append(key, data[key]);
+        });
+
+        return fetch(OC.generateUrl("apps/breezedark/settings"), {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                requesttoken: OC.requestToken,
+            },
+            body: body.toString(),
+        }).then(function (response) {
+            if (!response.ok) {
+                throw new Error("Request failed with status " + response.status);
+            }
+            return response;
+        });
+    }
+
+    function showMessage(selector, id, type) {
+        const anchor = document.querySelector(selector);
+        if (anchor === null) {
+            return;
+        }
+
+        const previous = document.getElementById(id);
+        if (previous !== null) {
+            previous.remove();
+        }
+
+        const message = document.createElement("span");
+        message.id = id;
+        message.className = "msg " + type;
+        message.textContent = t("breezedark", type === "success" ? "Saved" : "Error");
+
+        anchor.append(document.createTextNode(" "), message);
+
+        setTimeout(function () {
+            message.remove();
+        }, 3000);
+    }
+
+    function isChecked(id) {
+        const element = document.getElementById(id);
+        return element !== null && element.checked ? 1 : 0;
+    }
+
+    function savePersonalSettings(data, selector, id) {
+        post(data)
+            .then(function () {
+                showMessage(selector, id, "success");
             })
-            .fail(function () {
-                $("label[for='breezedark-automatic-activation-enabled']").append(
-                    " <span id='breezedark-automatic-activation-enabled-msg' class='msg error'>" +
-                        t("breezedark", "Error") +
-                        "</span>"
-                );
-                setTimeout(function () {
-                    $("#breezedark-automatic-activation-enabled-msg").remove();
-                }, 3000);
+            .catch(function () {
+                showMessage(selector, id, "error");
             });
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+        const themeEnabled = document.getElementById("breezedark-enabled");
+        const automaticActivation = document.getElementById(
+            "breezedark-automatic-activation-enabled"
+        );
+
+        if (themeEnabled !== null) {
+            themeEnabled.addEventListener("change", function () {
+                savePersonalSettings(
+                    {
+                        theme_enabled: this.checked ? 1 : 0,
+                        theme_automatic_activation_enabled: isChecked(
+                            "breezedark-automatic-activation-enabled"
+                        ),
+                    },
+                    "label[for='breezedark-enabled']",
+                    "breezedark-enabled-msg"
+                );
+            });
+        }
+
+        if (automaticActivation !== null) {
+            automaticActivation.addEventListener("change", function () {
+                savePersonalSettings(
+                    {
+                        theme_enabled: isChecked("breezedark-enabled"),
+                        theme_automatic_activation_enabled: this.checked ? 1 : 0,
+                    },
+                    "label[for='breezedark-automatic-activation-enabled']",
+                    "breezedark-automatic-activation-enabled-msg"
+                );
+            });
+        }
     });
-});
+})();

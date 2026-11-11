@@ -60,8 +60,10 @@ class BeforeTemplateRenderedListener implements IEventListener {
             return;
         }
 
-        if ($response->getRenderAs() === TemplateResponse::RENDER_AS_USER) {
-            $userId = $this->userSession->getUser()->getUID();
+        $user = $this->userSession->getUser();
+
+        if ($response->getRenderAs() === TemplateResponse::RENDER_AS_USER && $user !== null) {
+            $userId = $user->getUID();
             $themeEnabled = $this->config->getUserValue($userId, $this->appName, "theme_enabled", "0");
 
             if ($themeEnabled) {

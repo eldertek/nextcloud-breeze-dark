@@ -2,6 +2,41 @@
 
 ## [Unreleased]
 
+## 33.0.0 - 2026-08-22
+
+### Added
+
+-   Support for Nextcloud 32, 33 and 34
+-   Theme values for the status colours introduced with Nextcloud 32
+    (`--color-element-error`, `--color-element-warning`, `--color-element-success`,
+    `--color-element-info`, `--color-*-text`, `--color-border-error`,
+    `--color-border-success`) as well as `--color-favorite`,
+    `--color-background-plain-text` and the Nextcloud Assistant colours
+-   `<php min-version="8.2"/>` dependency, matching the Nextcloud 32+ requirement
+
+### Changed
+
+-   `--color-error`, `--color-warning`, `--color-success` and `--color-info` are now
+    dark background colours, following the semantics Nextcloud 32 introduced. The
+    vivid Breeze colours moved to the matching `--color-element-*` variables
+-   The primary colour derivatives (`--color-primary-hover`,
+    `--color-primary-element-hover`, `--color-primary-*-text`, …) are derived from
+    the Breeze plasma blue instead of the default Nextcloud blue
+-   The settings pages no longer use jQuery, which is no longer shipped by
+    Nextcloud 34, and use `fetch()` instead
+-   The controller security annotations were replaced by PHP attributes
+-   `nextcloud/ocp` and `nextcloud/coding-standard` dev dependencies were updated
+
+### Fixed
+
+-   `--color-main-background-rgb` and `--color-box-shadow-rgb` contained a colour
+    function instead of the plain RGB components, which broke every
+    `rgba(var(--color-…-rgb), …)` usage, e.g. the background blur
+-   Removed `--color-primary-default` and `--color-primary-element-default-hover`,
+    which no longer exist in Nextcloud 33
+-   A null user during template rendering no longer causes a fatal error in the
+    template listener
+
 ## 29.0.0 - 2024-08-04
 
 ### Added 

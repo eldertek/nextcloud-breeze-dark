@@ -30,6 +30,8 @@ namespace OCA\BreezeDark\Controller;
 
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
+use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
+use OCP\AppFramework\Http\Attribute\PublicPage;
 use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\IConfig;
 use OCP\IRequest;
@@ -58,12 +60,20 @@ class ThemingController extends Controller
     }
 
     /**
-     * @NoCSRFRequired
-     * @PublicPage
+     * Serve the custom styling configured by the administrator
+     *
+     * The theme stylesheet is also needed on public pages and during login,
+     * so this route must stay accessible without a session or CSRF token.
+     *
+     * NoSameSiteCookieRequired only gained an attribute counterpart in Nextcloud
+     * 34, so it stays an annotation as long as Nextcloud 32 and 33 are supported.
+     *
      * @NoSameSiteCookieRequired
      *
-     * @return DataDisplayResponse|NotFoundResponse
+     * @return DataDisplayResponse
      */
+    #[PublicPage]
+    #[NoCSRFRequired]
     public function getCustomStyling(): DataDisplayResponse
     {
         $customStyling = $this->config->getAppValue($this->appName, 'theme_custom_styling', '');
